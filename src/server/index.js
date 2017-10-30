@@ -1,6 +1,6 @@
 const express = require('express');
 
-const publicweb = process.env.PUBLICWEB || './dist/publicweb';
+const publicweb = process.env.PUBLICWEB || './dist';
 const app = express();
 
 app.use(express.static(publicweb));
@@ -10,4 +10,4 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.SERVER_PORT || '3000';
-app.listen(port, () => console.log(`API running on localhost:${port}`));
+app.listen(port, () => console.log(`Server running on localhost:${port}`));
