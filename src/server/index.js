@@ -1,46 +1,25 @@
-var express = require('express');
-var path = require('path');
-var fs = require('fs');
-var app = express();
-// var favicon = require('serve-favicon');
-var port = process.env.PORT || 4200;
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const http = require('http');
+const app = express();
 
-// app.use(favicon(__dirname + '/favicon.ico'));
+// Parsers
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
 
-app.get('/ping', function (req, res, next) {
-  console.log(req.body);
-  res.send('pong');
+// Angular DIST output folder
+app.use(express.static(path.join(__dirname, '../../dist')));
+
+// Send all other requests to the Angular app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../dist/index.html'));
 });
 
+//Set Port
+const port = process.env.PORT || '4200';
+app.set('port', port);
 
-var staticRoot = __dirname + '/';
+const server = http.createServer(app);
 
-app.use(express.static(staticRoot));
-
-// app.use(express.static('./'));
-// Any deep link calls should return index.html
-// app.use('/*', express.static('./index.html'));
-
-app.use(function (req, res, next) {
-
-  // if the request is not html then move along
-  var accept = req.accepts('html', 'json', 'xml');
-  if (accept !== 'html') {
-    return next();
-  }
-
-  // // if the request has a '.' assume that it's for a file, move along
-  // var ext = path.extname(req.path);
-  // if (ext !== '') {
-  //   return next();
-  // }
-
-  fs.createReadStream(staticRoot + 'index.html').pipe(res);
-});
-
-app.listen(port, function () {
-  console.log('Express server listening on port ' + port);
-  console.log(
-    '\n__dirname = ' + __dirname +
-    '\nprocess.cwd = ' + process.cwd());
-});
+server.listen(port, () => console.log(`Running on localhost:${port}`));

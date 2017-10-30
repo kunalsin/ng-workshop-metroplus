@@ -1,5 +1,5 @@
 {
-  "name": "one-with-angular",
+  "name": "node-server",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -7,7 +7,8 @@
   },
   "private": true,
   "dependencies": {
-    "express": "^4.15.3"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
   },
   "devDependencies": {}
 }
