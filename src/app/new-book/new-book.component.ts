@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from '../ibook';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-new-book',
@@ -19,7 +19,7 @@ export class NewBookComponent implements OnInit {
   // << --------------- >>
   // << METHODS - START >>
   // << --------------- >>
-  constructor(private _dialogRef: MdDialogRef<NewBookComponent>) { }
+  constructor(private _dialogRef: MatDialogRef<NewBookComponent>) { }
 
   ngOnInit() {
     this.book = {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from '../ibook';
-import { MdSnackBar, MdDialog } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { DataService } from '../data.service';
 import { BookDetailComponent } from '../book-detail/book-detail.component';
 import { Router } from '@angular/router';
@@ -26,8 +26,8 @@ export class CollectionComponent implements OnInit {
   // << ---------------- >>
   // << METHODS - START >>
   // << ---------------- >>
-  constructor(private _snackBar: MdSnackBar, private _dataService: DataService,
-              private _dialog: MdDialog, private _router: Router) {
+  constructor(private _snackBar: MatSnackBar, private _dataService: DataService,
+              private _dialog: MatDialog, private _router: Router) {
     this.startTime = new Date();
     this.startTime.setHours(10, 0);
     this.endTime = new Date();

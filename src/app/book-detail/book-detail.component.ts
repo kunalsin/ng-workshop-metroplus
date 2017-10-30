@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { IBook } from '../ibook';
 import { DataService } from '../data.service';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   templateUrl: './book-detail.component.html',
@@ -28,7 +28,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     private _route: ActivatedRoute,
     private _router: Router,
     private _dataService: DataService,
-    private _snackBar: MdSnackBar) {}
+    private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     if (!this.bookId) {

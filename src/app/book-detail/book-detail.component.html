@@ -1,11 +1,11 @@
 <div *ngIf="book">
-  <md-card>
-    <md-card-header>
-      <md-card-title><h4>{{book.title}}</h4></md-card-title>
-      <md-card-subtitle>{{book.author}}</md-card-subtitle>
-      <img md-card-avatar src="assets/img/book.png" />
-    </md-card-header>
-    <md-card-content>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><h4>{{book.title}}</h4></mat-card-title>
+      <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+      <img mat-card-avatar src="assets/img/book.png" />
+    </mat-card-header>
+    <mat-card-content>
       <div>
         <label><strong>Title:</strong></label>
         <span>{{book.title}}</span>
@@ -22,12 +22,12 @@
         <label><strong>Rating:</strong></label>
         <app-rating [rating]="book.rating" [book]="book" (ratingClicked)="onRatingUpdate($event)"></app-rating>
       </div>
-    </md-card-content>
-    <md-card-actions>
+    </mat-card-content>
+    <mat-card-actions>
       <div class="text-right">
-        <button md-button md-dialog-close *ngIf="bookId"><i class="material-icons">close</i>CLOSE</button>
-        <button md-button (click)="return()" *ngIf="!bookId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>
+        <button mat-button mat-dialog-close *ngIf="bookId"><i class="material-icons">close</i>CLOSE</button>
+        <button mat-button (click)="return()" *ngIf="!bookId"><i class="material-icons">keyboard_arrow_left</i>RETURN</button>
       </div>
-    </md-card-actions>
-  </md-card>
+    </mat-card-actions>
+  </mat-card>
 </div>

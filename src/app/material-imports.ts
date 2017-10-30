@@ -1,21 +1,22 @@
-import { MdCardModule, MdListModule, MdRippleModule, MdIconModule, MdSnackBarModule, MdDialogModule,
-         MdTabsModule, MdToolbarModule, MdButtonModule, MdInputModule, MdSlideToggle, FocusMonitor } from '@angular/material';
+import { MatCardModule, MatListModule, MatRippleModule, MatIconModule, MatSnackBarModule, MatDialogModule,
+         MatTabsModule, MatToolbarModule, MatButtonModule, MatInputModule, MatSlideToggle } from '@angular/material';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 export const MaterialModules = [
-    MdCardModule,
-    MdListModule,
-    MdRippleModule,
-    MdIconModule,
-    MdSnackBarModule,
-    MdDialogModule,
-    MdTabsModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdInputModule
+    MatCardModule,
+    MatListModule,
+    MatRippleModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule
 ];
 
 export const MaterialComponents = [
-    MdSlideToggle
+    MatSlideToggle
 ];
 
 export const MaterialServices = [
