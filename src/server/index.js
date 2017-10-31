@@ -1,25 +1,13 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const http = require('http');
+
+const publicweb = process.env.PUBLICWEB || './dist/publicweb';
 const app = express();
 
-// Parsers
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
-
-// Angular DIST output folder
-app.use(express.static(path.join(__dirname, '../../dist')));
-
-// Send all other requests to the Angular app
+app.use(express.static(publicweb));
+console.log(`serving ${publicweb}`);
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../dist/index.html'));
+  res.sendFile(`index.html`, { root: publicweb });
 });
 
-//Set Port
-const port = process.env.PORT || '4200';
-app.set('port', port);
-
-const server = http.createServer(app);
-
-server.listen(port, () => console.log(`Running on localhost:${port}`));
+const port = process.env.SERVER_PORT || '3000';
+app.listen(port, () => console.log(`API running on localhost:${port}`));
