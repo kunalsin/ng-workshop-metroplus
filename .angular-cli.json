@@ -11,9 +11,9 @@
         "assets",
         "favicon.ico",
         {
-          "glob": "**/*.*",
+          "glob": "*.*",
           "input": "./server",
-          "output": "../"
+          "output": "./"
         }
       ],
       "index": "index.html",
