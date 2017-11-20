@@ -34,7 +34,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     if (!this.bookId) {
       this.sub = this._route.params.subscribe(
         params => {
-          let id = +params['id'];
+          const id = +params['id'];
           this.getBook(id);
         });
       return;

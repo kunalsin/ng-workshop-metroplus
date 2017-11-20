@@ -45,8 +45,8 @@ export class CollectionComponent implements OnInit {
   }
 
   addBook(): void {
-    let config = {width: '650px', height: '650x', position: {top: '50px'}, disableClose: true};
-    let dialogRef = this._dialog.open(NewBookComponent, config);
+    const config = {width: '650px', height: '650x', position: {top: '50px'}, disableClose: true};
+    const dialogRef = this._dialog.open(NewBookComponent, config);
     dialogRef.afterClosed().subscribe(newBook => {
       if (newBook) {
         newBook.id = this.books.length + 1;
@@ -69,8 +69,8 @@ export class CollectionComponent implements OnInit {
   }
 
   openDialog(bookId: number): void {
-    let config = { width: '650px', height: '400x', position: { top: '50px' } };
-    let dialogRef = this._dialog.open(BookDetailComponent, config);
+    const config = { width: '650px', height: '400x', position: { top: '50px' } };
+    const dialogRef = this._dialog.open(BookDetailComponent, config);
     dialogRef.componentInstance.bookId = bookId;
     dialogRef.afterClosed().subscribe(res => {
         this.getBooks();
